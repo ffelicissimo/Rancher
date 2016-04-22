@@ -1,0 +1,18 @@
+#Verificando os grants do usuario
+SELECT * from information_schema.user_privileges where grantee like "'USERNAME'%";
+
+#Concedendo privilegio ao usuario
+mysql>GRANT ALL PRIVILEGES ON *.* TO 'rancher'@'localhost' IDENTIFIED BY 'rancher' WITH GRANT OPTION;
+mysql>GRANT ALL PRIVILEGES ON *.* TO 'rancher'@'10.1.12.85' IDENTIFIED BY 'rancher' WITH GRANT OPTION;
+
+Finally, you may also need to run:
+mysql> FLUSH PRIVILEGES;
+
+#Following will revoke all options for USERNAME from all machines:
+mysql> REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'USERNAME'@'%';
+
+#Following will revoke all options for USERNAME from particular IP:
+mysql> REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'USERNAME'@'1.2.3.4';
+
+#From terminal/command-line:
+mysql -h HOST -u USERNAME -pPASSWORD
