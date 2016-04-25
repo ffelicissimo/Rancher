@@ -1,0 +1,5 @@
+#Gerando a Imagem do Mysql
+$sudo docker build -t mysql .
+
+#Subindo o container Mysql
+docker run -d -p 3306:3306 --restart=always mysql
