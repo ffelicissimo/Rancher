@@ -1,3 +1,4 @@
+#!/bin/bash
 f [ ! -f /var/lib/mysql/rancher]; then
 
         mysql_install_db
