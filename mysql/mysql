@@ -2,4 +2,7 @@
 $sudo docker build -t mysql .
 
 #Subindo o container Mysql
-docker run -d -p 3306:3306 --restart=always mysql
+$docker run -d -p 3306:3306 --restart=always mysql
+
+#Subindo Mysql
+$docker run --name rancherdb --restart=always -e MYSQL_ROOT_PASSWORD=Magazine123 -d -p 3306:3306 mysql/mysql-server
