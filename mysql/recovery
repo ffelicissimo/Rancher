@@ -1,0 +1,2 @@
+############### Recovery Banco Mysql #####################################
+mysql -h hostname -P 3306 -u root -psenha database < restore.sql
