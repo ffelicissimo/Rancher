@@ -1,0 +1,8 @@
+######################################### Dump somente unico banco ##################################################################
+mysqldump database --single-transaction --skip-lock-tables --skip-opt --add-drop-table --create-options --extended-insert --quick --set-charset -h hostname -P 3306 -u root -p'password' | bzip2 -c > /bkp/bkp_rancherdb-$(date +%d%m%Y).sql.bz2
+#####################################################################################################################################
+
+
+######################################### Dump todos os bancos ######################################################################
+mysqldump --all-databases --single-transaction --skip-lock-tables --skip-opt --add-drop-table --create-options --extended-insert --quick --set-charset -h hostname -P 3306 -u root -p'password' | bzip2 -c > /bkp/bkp_alldb-$(date +%d%m%Y).sql.bz2
+#####################################################################################################################################
