@@ -1,0 +1,1 @@
+docker run --name rancherdb --restart=always -e MYSQL_ROOT_PASSWORD=Magazine123 -d -p 3306:3306 mysql/mysql-server
