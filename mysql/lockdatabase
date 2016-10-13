@@ -1,0 +1,11 @@
+use ranchedb;
+mysql> select * from DATABASECHANGELOGLOCK;
++----+--------+---------------------+----------------------------------------------+
+| ID | LOCKED | LOCKGRANTED         | LOCKEDBY                                     |
++----+--------+---------------------+----------------------------------------------+
+|  1 |       | 2016-09-10 04:43:31 | b268dbf32e7f (fe80:0:0:0:42:acff:fe11:2%114) |
++----+--------+---------------------+----------------------------------------------+
+1 row in set (0.00 sec)
+mysql> update DATABASECHANGELOGLOCK set LOCKED="", LOCKGRANTED=null, LOCKEDBY=null where ID=1;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
