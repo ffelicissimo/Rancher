@@ -1,0 +1,4 @@
+# Removing all the running Rancher containers
+$ sudo docker rm -f $(sudo docker ps -a | grep rancher | awk {'print $1'})
+# Execute the scrip with the latest rancher/server version
+$ sudo sh rancher-ha.sh rancher/server:v1.1.0
