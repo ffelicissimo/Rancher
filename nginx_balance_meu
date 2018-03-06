@@ -1,15 +1,15 @@
-upstream phenix.magazineluiza.intranet {
-    server s500lxhmldocker01.magazineluiza.intranet;
-    server s500lxhmldocker02.magazineluiza.intranet;
-    server s500lxhmldocker03.magazineluiza.intranet;
+upstream vip.dominio.intranet {
+    server host01.dominio.intranet;
+    server host02.dominio.intranet;
+    server host03.dominio.intranet;
 }
 
 server {
     ssl on;
     listen 10.31.0.240:443 ssl;
-    server_name phenix.magazineluiza.intranet;
-    ssl_certificate ssl/phenix.magazineluiza.intranet/server.crt;
-    ssl_certificate_key ssl/phenix.magazineluiza.intranet/server.key;
+    server_name vip.dominio.intranet;
+    ssl_certificate ssl/vip.dominio.intranet/server.crt;
+    ssl_certificate_key ssl/vip.dominio.intranet/server.key;
     ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
     ssl_ciphers RC4-SHA:AES128-SHA:AES:!ADH:!aNULL:!DH:!EDH:!eNULL;
     ssl_session_cache shared:TLSSL:100m;
@@ -20,7 +20,7 @@ server {
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header X-Forwarded-Port $server_port;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_pass http://phenix.magazineluiza.intranet;
+        proxy_pass http://vip.dominio.intranet;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
@@ -31,6 +31,6 @@ server {
 
 server {
     listen 10.31.0.240:80;
-    server_name phenix.magazineluiza.intranet;
+    server_name vip.dominio.intranet;
     return 301 https://$server_name$request_uri;
 }
